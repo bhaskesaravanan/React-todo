@@ -13,16 +13,18 @@ class App extends Component {
   }
 
   addItem() {
-    this.setState({
-      items: [
-        ...this.state.items,
-        {
-          text: this.taskInput.value,
-          id: Date.now(),
-        },
-      ],
-    });
-    this.taskInput.value = '';
+    if (this.taskInput.value !== '') {
+      this.setState({
+        items: [
+          ...this.state.items,
+          {
+            text: this.taskInput.value,
+            id: Date.now(),
+          },
+        ],
+      });
+      this.taskInput.value = '';
+    }
   }
 
   render() {
